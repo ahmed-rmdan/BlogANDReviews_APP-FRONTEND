@@ -4,7 +4,7 @@
 
 import React from "react";
 import { ItemSlider } from "./item";
-
+import { Taps } from "./taps";
 
 export function Slider(){
     
@@ -21,12 +21,7 @@ return(
                                    <ItemSlider title="FIRSTPOST" description="thisdsadsadsadadsadsadsdsadsadasdsadasdasdsadasdsadsadsadsdsadsadsadsadsadsadsadsasadsads" image="https://cdn.pixabay.com/photo/2025/10/09/14/14/muztagh-9883659_1280.jpg"></ItemSlider>
                                     </ul>
                              </div>
-                              <div className="flex flex-row items-center absolute bottom-[2.5%] sm:bottom-[4%] xl:bottom-[4.5%] right-[10%] w-[80%] h-[5%] gap-[3%] justify-center wrap-break-word ">
-                                  <button className=" h-[15px] w-[15px] sm:h-[20px] sm:w-[20px] rounded-[180%] bg-[#cb1b16] "></button>
-                                  <button className="h-[15px] w-[15px] sm:h-[20px] sm:w-[20px] rounded-[180%] bg-white "></button>
-                                  <button className="h-[15px] w-[15px] sm:h-[20px] sm:w-[20px] rounded-[180%] bg-white "></button>
-                                 
-                               </div>
+                             <Taps></Taps>
 
                     </div>
                   
