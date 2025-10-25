@@ -16,7 +16,7 @@ return(
                         <div className="bg-gray-700 absolute top-0 min-w-full min-h-full z-10 opacity-70 ">
 
                         </div>
-                         <p className="w-[95%] z-20 text-[7em] wrap-break-word mb-[7%] lg:mb-[5%] ">
+                         <p className="w-[95%] z-20 text-[7em] wrap-break-word mb-[7%] lg:mb-[5%] text-white font-semibold ">
                           {props.description}
                         </p>
                      
