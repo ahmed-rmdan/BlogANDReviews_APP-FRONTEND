@@ -9,11 +9,11 @@ export const ItemReview:React.FC<{title:string,description:string,image:string}>
 
 
 return(
-           <div className="min-h-full min-w-full relative flex flex-col-reverse items-center text-[#cb1b16]">
-                    <Image alt={props.title} fill src={props.image} className=" absolute top-0 min-w-full min-h-full ">
+           <div className="min-h-full min-w-full relative flex flex-col-reverse items-center text-[#cb1b16] rounded-[10px]">
+                    <Image alt={props.title} fill src={props.image} className=" absolute top-0 min-w-full min-h-full rounded-[10px] ">
                                
                     </Image>
-                        <div className="bg-gray-700 absolute top-0 min-w-full min-h-full z-10 opacity-70 ">
+                        <div className="bg-gray-700 absolute top-0 min-w-full min-h-full z-10 opacity-70  rounded-[10px]">
 
                         </div>
                           
@@ -21,7 +21,7 @@ return(
                           {props.description}
                         </p>
                      
-                          <h1 className=" w-full z-20 text-[10em] items-center underline font-bold hover:cursor-pointer" >
+                          <h1 className=" w-[97%] z-20 text-[10em] items-center underline font-bold hover:cursor-pointer" >
 
                          {props.title}
                        </h1>

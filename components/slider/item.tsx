@@ -20,7 +20,7 @@ return(
                           {props.description}
                         </p>
                      
-                     <h1 className=" w-full z-20 text-[10em] items-center underline font-bold hover:cursor-pointer" >
+                     <h1 className=" w-[97%] z-20 text-[10em] items-center underline font-bold hover:cursor-pointer" >
 
                          {props.title}
                      </h1>
