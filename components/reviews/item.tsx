@@ -13,7 +13,7 @@ return(
                     <Image alt={props.title} fill src={props.image} className=" absolute top-0 min-w-full min-h-full rounded-[10px] ">
                                
                     </Image>
-                        <div className="bg-gray-700 absolute top-0 min-w-full min-h-full z-10 opacity-70  rounded-[10px]">
+                        <div className="bg-gray-700 absolute top-0 min-w-full min-h-full z-10 opacity-50  rounded-[10px]">
 
                         </div>
                           

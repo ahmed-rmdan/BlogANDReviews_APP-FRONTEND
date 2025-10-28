@@ -11,6 +11,11 @@ import { AnimatePresence } from "framer-motion";
 
 import { House } from 'lucide-react';
 import { Search } from 'lucide-react';
+import { Newspaper } from 'lucide-react';
+import { Star } from 'lucide-react';
+import { Sun } from 'lucide-react';
+import { Moon } from 'lucide-react';
+import { User } from 'lucide-react';
 
 
 export function Header(){
@@ -49,9 +54,16 @@ return(
                       <House size={'1.4em'}></House>
                       <button onClick={()=>{handlenavigate('2')}}  className="hover:underline hover:cursor-pointer" > HOME</button>
                     </div>
-                       
-                        <button  onClick={()=>{handlenavigate('3')}} className="hover:underline hover:cursor-pointer text-[1.1em]" > Blog</button>
-                        <button  onClick={()=>{handlenavigate('4')}}  className="hover:underline hover:cursor-pointer text-[1.05em]"> Reviews</button>
+                     <div className="flex flex-row gap-[5px] items-center">
+                      <Newspaper size={'1.4em'}></Newspaper>
+                      <button  onClick={()=>{handlenavigate('3')}} className="hover:underline hover:cursor-pointer text-[1.1em]" > Blog</button>
+                    </div>
+                          <div className="flex flex-row gap-[5px] items-center">
+                      <Star size={'1.4em'}></Star>
+                      <button  onClick={()=>{handlenavigate('4')}}  className="hover:underline hover:cursor-pointer text-[1.05em]"> Reviews</button>
+                    </div>
+                        
+                        
           
                 </div>               
          
@@ -60,15 +72,18 @@ return(
              <Link href={'/'} onClick={()=>{handlenavigate('1')}} className=" text-center  font-extrabold w-[30%] 
                                 sm:text-[6em]  lg:text-[9em] 
                                 hover:cursor-pointer   ">
-                       True Tech
+                       FineTech
                 
               </Link>
               <div className="flex flex-row items-center justify-center  w-[30%] gap-[20%]">
                  <button  className=" sm:text-[3em] lg:text-[3em] xl:text-[4.5em] font-semibold hover:underline hover:cursor-pointer">
                  LogIn/SignUp
                    </button>
+                   {/* <User size={'8em'}></User> */}
                    <Search className=" hover:cursor-pointer" size={'7.5em'}></Search>
-                 
+                   {/* <Sun className=" hover:cursor-pointer" size={'7.5em'}></Sun> */}
+                   <Moon className=" hover:cursor-pointer" size={'7.5em'}></Moon>
+                   
                     
               </div>
                 
@@ -87,7 +102,7 @@ else {
                           <Link href={'/'}  className=" text-center  font-extrabold w-[50%] 
                                 text-[7em]  
                                 hover:cursor-pointer   ">
-                                 True Tech
+                                 FineTech
                 
                           </Link>
                               <div className="flex flex-row w-[30%] gap-[13%] ">
@@ -106,16 +121,29 @@ else {
               items-center justify-start bg-[#cb1b16]   ">
 
                 
-                 <div className="flex flex-col w-full mt-[65px] min-h-[100%] items-center justify-start gap-[1%] text-[13px] 
+                 <div className="flex flex-col w-full mt-[40px] min-h-[100%] items-center justify-start gap-[5%] text-[13px] 
               text-white font-semibold  ">
+                          <div className="flex flex-row justify-start h-[10%] w-[70%] items-center">
+                                <Moon size={'2em'}></Moon>
+                               
+                           </div>
                       <div className="flex flex-col w-full     min-h-full items-center gap-[10%]">
+
                           <div className="flex flex-row gap-[5px] items-center">
                                 <House size={'1.4em'}></House>
                                <button onClick={()=>{handlenavigate('2')}}  className="hover:underline hover:cursor-pointer" > HOME</button>
                            </div>
-                       
-                          <button  onClick={()=>{handlenavigate('3')}} className="hover:underline hover:cursor-pointer text-[1.1em]" > Blog</button>
-                           <button  onClick={()=>{handlenavigate('4')}}  className="hover:underline hover:cursor-pointer text-[1.05em]"> Reviews</button>
+                              <div className="flex flex-row gap-[5px] items-center">
+                                <Newspaper size={'1.4em'}></Newspaper>
+                               <button  onClick={()=>{handlenavigate('3')}} className="hover:underline hover:cursor-pointer text-[1.1em]" > Blog</button>
+                           </div>
+                           
+                              <div className="flex flex-row gap-[5px] items-center">
+                                <Star size={'1.4em'}></Star>
+                               <button  onClick={()=>{handlenavigate('4')}}  className="hover:underline hover:cursor-pointer text-[1.05em]"> Reviews</button>
+                           </div>
+                          
+                           
           
                       </div>     
                 </div> 

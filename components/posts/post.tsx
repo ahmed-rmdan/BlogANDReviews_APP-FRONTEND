@@ -10,7 +10,7 @@ export const ItemPost:React.FC<{title:string,description:string,image:string}>=(
 
 
 return(
-           <div className=" h-[23%] w-[60%]    bg-white relative flex flex-row items-center justify-between rounded-[5px] text-[#cb1b16] ">
+           <div className=" h-[23%] w-[97%] sm:w-[90%] xl:w-[60%]    bg-white relative flex flex-row items-center justify-between rounded-[5px] text-[#cb1b16] ">
 
 
                       <div className="w-[30%] h-full  relative rounded-[5px]  ">

@@ -9,11 +9,11 @@ export const ItemSlider:React.FC<{title:string,description:string,image:string}>
 
 
 return(
-           <li className="min-h-full min-w-full relative flex flex-col-reverse items-center text-[#cb1b16]">
-                    <Image alt={props.title} fill src={props.image} className=" absolute top-0 min-w-full min-h-full ">
+           <li className="min-h-full min-w-full relative flex flex-col-reverse items-center text-[#cb1b16] rounded-2xl">
+                    <Image alt={props.title} fill src={props.image} className=" absolute top-0 min-w-full min-h-full rounded-2xl ">
                                
                     </Image>
-                        <div className="bg-gray-700 absolute top-0 min-w-full min-h-full z-10 opacity-70 ">
+                        <div className="bg-gray-700 absolute top-0 min-w-full min-h-full z-10 opacity-50 rounded-2xl ">
 
                         </div>
                          <p className="w-[95%] z-20 text-[7em] wrap-break-word mb-[7%] lg:mb-[5%] text-white font-semibold ">
