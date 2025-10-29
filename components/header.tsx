@@ -52,7 +52,7 @@ return(
                 <div className="flex w-full sm:text-[0.75em] lg:text-[1em]   h-full justify-center items-center gap-[12%]">
                     <div className="flex flex-row gap-[5px] items-center">
                       <House size={'1.4em'}></House>
-                      <button onClick={()=>{handlenavigate('2')}}  className="hover:underline hover:cursor-pointer" > HOME</button>
+                      <Link href={'/'}  className="hover:underline hover:cursor-pointer" > HOME</Link>
                     </div>
                      <div className="flex flex-row gap-[5px] items-center">
                       <Newspaper size={'1.4em'}></Newspaper>
@@ -60,7 +60,7 @@ return(
                     </div>
                           <div className="flex flex-row gap-[5px] items-center">
                       <Star size={'1.4em'}></Star>
-                      <button  onClick={()=>{handlenavigate('4')}}  className="hover:underline hover:cursor-pointer text-[1.05em]"> Reviews</button>
+                      <Link href={'/reviews'}   className="hover:underline hover:cursor-pointer text-[1.05em]"> Reviews</Link>
                     </div>
                         
                         
