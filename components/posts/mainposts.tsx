@@ -24,7 +24,8 @@ return(
                                      <ItemPost title="first post" description="this is my first post in this app to test th ui look" 
                                 image="https://cdn.pixabay.com/photo/2025/10/09/14/14/muztagh-9883659_1280.jpg"></ItemPost>
                       </div>
-                      <Link href={'/posts'} className=" h-[45px] sm:h-[55px] w-[30%] sm:w-[15%] xl:w-[10%] flex items-center justify-center text-[5.5em] rounded-2xl font-extrabold bg-[#cb1b16] ">
+                      <Link href={'/posts'} className=" h-[45px] sm:h-[55px] w-[30%] sm:w-[15%] xl:w-[10%] flex items-center 
+                       justify-center text-[5.5em] rounded-2xl font-extrabold bg-[#cb1b16] hover:bg-gray-600 ">
                                  ALL POSTS
                       </Link>
                                    

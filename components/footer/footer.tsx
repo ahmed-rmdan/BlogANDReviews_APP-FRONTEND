@@ -16,7 +16,7 @@ export const Footer:React.FC<{}>=()=>{
         </div>
        <div className="flex flex-col w-full items-center justify-center gap-[5%] sm:gap-[19%] h-[300px] sm:h-[55%] ">
            <h2 className="underline font-bold text-[1.6em]">Contact ME</h2>
-              <div className=" w-[50%] sm:min-w-[35%] sm:max-w-[35%] h-[75%] sm:h-[35%] flex flex-col sm:flex-row  items-center gap-[8%] justify-around  ">
+              <div className=" w-[60%] sm:min-w-[35%] sm:max-w-[35%] h-[75%] sm:h-[35%] flex flex-col sm:flex-row  items-center gap-[8%] justify-around  ">
                       <a href="https://github.com/ahmed-rmdan" className="min-w-[18%] max-w-[18%] h-[35%] sm:min-h-full sm:max-h-full relative "> 
                        <img alt="github-logo"   className=" absolute min-w-full max-w-full min-h-full max-h-full "  
                        src={githublogo.src}>
