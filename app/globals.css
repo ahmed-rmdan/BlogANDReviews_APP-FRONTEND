@@ -120,3 +120,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .text-main {
+    @apply text-[#cb1b16];
+  }
+
+  .text-sec {
+    @apply text-[#e5e7eb];
+  }
+  .bg-main{
+    @apply bg-[#cb1b16];
+  }
+   .bg-sec{
+    @apply bg-[#e5e7eb];
+  }
+}

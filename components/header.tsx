@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+
 import { AlignJustify } from 'lucide-react';
 import { useState,useEffect } from "react";
 import {motion} from 'framer-motion'
@@ -11,6 +12,7 @@ import { Searchinput } from "./global/search";
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { CardLogin } from "./user/login";
 
 import { House } from 'lucide-react';
 import { Search } from 'lucide-react';
@@ -26,6 +28,7 @@ export function Header(){
 const [width,setwidth]=useState<number>(0)
 const [menu,setmenu]=useState<boolean>(false)
 const [search,setsearch]=useState<boolean>(false)
+const [sign,setsign]=useState<boolean>(false)
 
 useEffect(()=>{
 setwidth(window.screen.width)
@@ -51,8 +54,8 @@ function handlesearch(){
 
 if(width>=768){
 return(
-           <nav className="flex flex-row sticky  top-0  z-[10000]  min-w-full  p-5  
-            items-center bg-[#cb1b16] text-white text-[2.5px] sm:text-[4px]   lg:text-[4px] xl:flex-row xl:text-[4px] 2xl:text-[4.5px] min-h-[30px]   ">
+           <nav className="flex flex-row xl:flex-row sticky  top-0  z-[10000]  min-w-full  p-5  
+            items-center bg-[#cb1b16] text-white text-[2.5px] sm:text-[4px]   lg:text-[4px]  xl:text-[4px] 2xl:text-[4.5px] min-h-[30px]   ">
               <div className="flex flex-row items-center justify-center    sm:min-w-[20%] 
               text-white font-semibold   w-[35%] text-[3em]   md:text-[5em] lg:text-[4em]   xl:text-[5em]  ">
                 <div className="flex w-full sm:text-[0.75em] lg:text-[1em]   h-full justify-center items-center gap-[12%]">
@@ -81,10 +84,17 @@ return(
                        FineTech
                 
               </Link>
-              <div className="flex flex-row  items-center justify-center  w-[30%] gap-[20%]">
-                 <button  className=" sm:text-[3em] lg:text-[3em] xl:text-[4.5em] font-semibold hover:underline hover:cursor-pointer">
+              <div className="flex flex-row relative items-center justify-center  w-[30%] gap-[20%]">
+               {  sign&&  <div  onMouseLeave={()=>{setsign(prev=>false)}}  onMouseEnter={()=>{setsign(prev=>true)}} className=" absolute w-[300px] xl:w-[370px] h-[350px] 
+                     right-[70px]  xl:right-[150px]  2xl:right-[250px] top-[30px] bg-[#e5e7eb]">
+                           <CardLogin></CardLogin>
+                   </div>}
+                 <Link href={'/login'} onMouseEnter={()=>{
+                  setsign(prev=>true)
+                 }} className=" sm:text-[3em] lg:text-[3em] xl:text-[4.5em] self-center font-semibold hover:underline hover:cursor-pointer">
                  LogIn/SignUp
-                   </button>
+                   </Link>
+                
                    {/* <User size={'8em'}></User> */}
                    <Search onClick={handlesearch} className=" hover:cursor-pointer" size={'7.5em'}></Search>
                    
@@ -120,9 +130,9 @@ else {
                 
                           </Link>
                               <div className="flex flex-row w-[30%] gap-[13%] ">
-                                 <button  className="text-[3em]  font-semibold hover:underline hover:cursor-pointer">
+                                 <Link  href={'/login'} className="text-[3em] self-center  font-semibold hover:underline hover:cursor-pointer">
                                  LogIn/SignUp
-                                  </button>
+                                  </Link>
                                 <Search className=" hover:cursor-pointer" size={'7.5em'} onClick={handlesearch}></Search>
                  
                               </div>
