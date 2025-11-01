@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Searchinput } from "@/components/global/search";
 import { Filter } from "@/components/global/filter";
-import { ItemPost } from "@/components/posts/post";
+import { ItemPost } from "@/components/posts/itempost";
 
 export const metadata: Metadata = {
   title: "FineTech-BLOG",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Blog() {
   return (
     <section className=" w-full flex flex-col items-center bg-[#e5e7eb] text-[2.5px] sm:text-[3px]   lg:text-[3.5px]  xl:text-[4px] 2xl:text-[4.5px]   " >
-      <div className="flex flex-row w-full sm:w-[85%] lg:w-[70%] 2xl:w-[55%] justify-center items-center h-[80px] gap-[20px]">
+      <div className="flex flex-row w-full sm:w-[85%] lg:w-[70%] 2xl:w-[55%] justify-center items-center h-[55px] sm:h-[80px] gap-[11px] sm:gap-[20px]">
             <Searchinput></Searchinput>
            <Filter></Filter>
       </div>

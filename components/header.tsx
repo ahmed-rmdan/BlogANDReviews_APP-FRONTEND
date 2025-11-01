@@ -6,8 +6,11 @@ import { AlignJustify } from 'lucide-react';
 import { useState,useEffect } from "react";
 import {motion} from 'framer-motion'
 import { AnimatePresence } from "framer-motion";
+import { Searchinput } from "./global/search";
 
 
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
 import { House } from 'lucide-react';
 import { Search } from 'lucide-react';
@@ -22,6 +25,7 @@ export function Header(){
     
 const [width,setwidth]=useState<number>(0)
 const [menu,setmenu]=useState<boolean>(false)
+const [search,setsearch]=useState<boolean>(false)
 
 useEffect(()=>{
 setwidth(window.screen.width)
@@ -41,7 +45,9 @@ function handlenavigate(input:string){
   const section=document.getElementById(`section-${input}`)
   section?.scrollIntoView({behavior:'smooth'})
 }
-
+function handlesearch(){
+  setsearch(prev=>!prev)
+}
 
 if(width>=768){
 return(
@@ -56,7 +62,7 @@ return(
                     </div>
                      <div className="flex flex-row gap-[5px] items-center">
                       <Newspaper size={'1.4em'}></Newspaper>
-                      <button  onClick={()=>{handlenavigate('3')}} className="hover:underline hover:cursor-pointer text-[1.1em]" > Blog</button>
+                      <Link  href={'/blog'} className="hover:underline hover:cursor-pointer text-[1.1em]" > Blog</Link>
                     </div>
                           <div className="flex flex-row gap-[5px] items-center">
                       <Star size={'1.4em'}></Star>
@@ -75,18 +81,26 @@ return(
                        FineTech
                 
               </Link>
-              <div className="flex flex-row items-center justify-center  w-[30%] gap-[20%]">
+              <div className="flex flex-row  items-center justify-center  w-[30%] gap-[20%]">
                  <button  className=" sm:text-[3em] lg:text-[3em] xl:text-[4.5em] font-semibold hover:underline hover:cursor-pointer">
                  LogIn/SignUp
                    </button>
                    {/* <User size={'8em'}></User> */}
-                   <Search className=" hover:cursor-pointer" size={'7.5em'}></Search>
+                   <Search onClick={handlesearch} className=" hover:cursor-pointer" size={'7.5em'}></Search>
+                   
                    {/* <Sun className=" hover:cursor-pointer" size={'7.5em'}></Sun> */}
                    <Moon className=" hover:cursor-pointer" size={'7.5em'}></Moon>
                    
                     
               </div>
-                
+      {     search &&  <div className=" absolute flex flex-row top-[80px] lg:top-[100px] items-center justify-center sm:right-[70px] right-[150px] 2xl:right-[250px]
+       gap-[10px] bg-[#e5e7eb]  w-[350px] h-[50px]">
+                         <Input type="text" className=" border-[#cb1b16] text-[4em] w-[67%] border-2 text-[#cb1b16] bg-white "  />
+                          <Button type="submit" variant="outline" className=" bg-[#cb1b16] hover:bg-[#cb1b16] text-[3em]  w-[25%]
+                           hover:cursor-pointer hover:text-white " >
+                                 <Search className="w-[25%]  " ></Search> Search
+                            </Button>
+                </div>}
                                    
            </nav>
     )
@@ -109,16 +123,24 @@ else {
                                  <button  className="text-[3em]  font-semibold hover:underline hover:cursor-pointer">
                                  LogIn/SignUp
                                   </button>
-                                <Search className=" hover:cursor-pointer" size={'7.5em'}></Search>
+                                <Search className=" hover:cursor-pointer" size={'7.5em'} onClick={handlesearch}></Search>
                  
-                              </div>                
+                              </div>
+                                  {     search &&  <div className=" absolute flex flex-row top-[50px]  items-center justify-center right-[17px] 
+                                                gap-[5px] bg-[#e5e7eb] z-100  w-[200px] h-[50px]">
+                         <Input type="text" className=" border-[#cb1b16] text-[4em] w-[67%] border-2 text-[#cb1b16] bg-white "  />
+                          <Button type="submit" variant="outline" className=" bg-[#cb1b16] hover:bg-[#cb1b16] text-[4em]  font-bold w-[25%]
+                           hover:cursor-pointer hover:text-white " >
+                             Search
+                            </Button>
+                </div>}                
                     </div>
         
              </div>
              <AnimatePresence>
               {menu?<motion.div initial={{width:0,opacity:0}} animate={{width:150,opacity:100}} transition={{duration:0.5}}
               exit={{width:0,opacity:0}} className="flex flex-col absolute left-0 top-[48px] h-[850px] w-[35%] 
-              items-center justify-start bg-[#cb1b16]   ">
+              items-center justify-start bg-[#cb1b16]  ">
 
                 
                  <div className="flex flex-col w-full mt-[40px] min-h-[100%] items-center justify-start gap-[5%] text-[13px] 

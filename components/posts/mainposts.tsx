@@ -3,7 +3,7 @@
 
 
 import React from "react";
-import { ItemPost } from "./post";
+import { ItemPost } from "./itempost";
 import Link from "next/link";
 
 export function MainPosts(){
