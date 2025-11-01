@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Eye } from 'lucide-react';
 import { ThumbsUp } from 'lucide-react';
 import { MessageCircle } from 'lucide-react';
+
 export const ItemPost:React.FC<{title:string,description:string,image:string}>=(props)=>{
     
 
@@ -21,10 +22,10 @@ return(
                         
                      <div className="w-[68%] h-[97%]   flex flex-col item-center justify-center ">
                            <div className="w-full h-[70%] flex flex-col">
-                                <h1 className=" w-full z-20 text-[9em] items-center underline font-bold hover:cursor-pointer" >
+                                <a  href="/post/sadsadsa" className=" w-full z-20 text-[9em] items-center underline font-bold hover:cursor-pointer" >
 
                                     {props.title}
-                                </h1>
+                                </a>
                                   <p className="w-[95%] z-20 text-[6em] wrap-break-word overflow-auto mb-[5%] sm:mb-[2%] lg:mb-[5%] ">
                                   {props.description}
                                  </p>

@@ -52,7 +52,7 @@ export function CardLogin() {
         </form>
       </CardContent>
       <CardFooter className="flex-col gap-2">
-        <Button type="submit" className="w-full bg-main text-white  ">
+        <Button type="submit" className="w-full bg-main text-white hover:bg-gray-500 ">
           Login
         </Button>
         <Button variant="outline" className="w-full">
