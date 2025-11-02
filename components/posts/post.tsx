@@ -29,13 +29,13 @@ return(
                                   <p className="hover:underline hover:cursor-pointer"> {props.title}</p>
                             </div>
                             <Bookmark size={'8.5em'} className="self-end mr-[30px] mb-[15px] hover:cursor-pointer"></Bookmark>
-                              <div className=" w-[38%] sm:w-[20%] flex flex-row justify-around self-end text-[3.5em]">
+                              <div className=" w-[38%] sm:w-[20%] flex flex-row justify-around gap-[3px] self-end text-[3.5em]">
                                           
-                                              <div className="flex flex-row items-center font-bold  gap-[4px] sm:gap-[8px]">
+                                              <div className="flex flex-row items-center font-bold  gap-[2px] sm:gap-[5px]">
                                               <ThumbsUp size={'1.5em'}></ThumbsUp>
                                                 20
                                                   </div>
-                                                  <div className="flex flex-row items-center font-bold   gap-[4px] sm:gap-[8px]">
+                                                  <div className="flex flex-row items-center font-bold   gap-[2px] sm:gap-[5px]">
                                                         <MessageCircle size={'1.5em'}></MessageCircle>
                                                            35
                                                   </div>

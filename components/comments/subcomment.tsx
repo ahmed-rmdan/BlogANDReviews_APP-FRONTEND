@@ -15,9 +15,9 @@ export const SubComment:React.FC<{image:string,date:string,content:string,userna
 
 
 return(
-        <div className=" w-full flex flex-col ml-[12%] sm:ml-[10%] mt-[10px]">
+        <div className=" w-[95%]  sm:w-full flex flex-col ml-[12%] sm:ml-[10%] mt-[10px]">
            <div className="flex flex-row  justify-start items-start  gap-[8px] w-[70%] ">
-                  <div className=" h-[60px] w-[60px] rounded-[180%] relative ">
+                  <div className="  h-[60px] w-[60px] rounded-[180%] relative ">
                        <Image  alt="" fill src={props.image} className="absolute top-0 h-[60px] w-[60px] rounded-[180%]" ></Image>
                   </div>
                  <div className="flex  flex-col gpa-[3px]   ">
