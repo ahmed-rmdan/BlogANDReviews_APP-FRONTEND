@@ -16,26 +16,26 @@ export const Post:React.FC<{title:string,description:string,image:string,date:st
 
 
 return(
-           <div className=" h-[23%] w-[97%] sm:w-[90%] xl:w-[60%]    bg-white relative flex flex-col items-start justify-start rounded-[5px] text-black p-4 ">
-                            <div className="w-[23%] flex flex-row justify-around items-center  text-[3em] text-gray-600">
+           <div className=" h-[23%] w-full sm:w-[90%] xl:w-[60%]    bg-white relative flex flex-col items-start justify-start rounded-[5px] text-black p-4 ">
+                            <div className="  sm:w-[25%] lg:w-[23%] flex flex-row justify-around items-center   text-[3em] text-gray-600">
                                  <Link className="flex flex-row items-center justify-center gap-[5px] hover:underline" href={'/'}> 
-                                       <House></House>  Home
+                                       <House size={'1.5em'} ></House>  Home
                                   </Link>
-                                   <ChevronRight></ChevronRight>
+                                   <ChevronRight size={'1.5em'}></ChevronRight>
                                    <Link className="flex flex-row items-center justify-center gap-[5px] hover:underline" href={'/blog'}> 
-                                       <Newspaper></Newspaper>  blog
+                                       <Newspaper size={'1.5em'}></Newspaper>  blog
                                   </Link>
-                                  <ChevronRight></ChevronRight>
+                                  <ChevronRight size={'1.5em'}></ChevronRight>
                                   <p className="hover:underline hover:cursor-pointer"> {props.title}</p>
                             </div>
                             <Bookmark size={'8.5em'} className="self-end mr-[30px] mb-[15px] hover:cursor-pointer"></Bookmark>
-                              <div className="w-[20%] flex flex-row justify-around self-end text-[3.5em]">
+                              <div className=" w-[38%] sm:w-[20%] flex flex-row justify-around self-end text-[3.5em]">
                                           
-                                              <div className="flex flex-row items-center font-bold  gap-[8px]">
+                                              <div className="flex flex-row items-center font-bold  gap-[4px] sm:gap-[8px]">
                                               <ThumbsUp size={'1.5em'}></ThumbsUp>
                                                 20
                                                   </div>
-                                                  <div className="flex flex-row items-center font-bold  gap-[8px]">
+                                                  <div className="flex flex-row items-center font-bold   gap-[4px] sm:gap-[8px]">
                                                         <MessageCircle size={'1.5em'}></MessageCircle>
                                                            35
                                                   </div>

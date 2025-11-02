@@ -1,22 +1,21 @@
-'use client'
+
 import React from "react";
-import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
+
 import Image from "next/image";
-import Link from "next/link";
+
 import { ThumbsUp } from 'lucide-react';
 
-import { useState } from "react";
 
-import { SubComment } from "./subcomment";
 
-export const Comment:React.FC<{image:string,date:string,content:string,username:string}>=(props)=>{
+
+
+export const SubComment:React.FC<{image:string,date:string,content:string,username:string}>=(props)=>{
     
-const [respone,setrespone]=useState<boolean>(false)
+
 
 
 return(
-        <div className=" w-full flex flex-col  mt-[10px]">
+        <div className=" w-full flex flex-col ml-[12%] sm:ml-[10%] mt-[10px]">
            <div className="flex flex-row  justify-start items-start  gap-[8px] w-[70%] ">
                   <div className=" h-[60px] w-[60px] rounded-[180%] relative ">
                        <Image  alt="" fill src={props.image} className="absolute top-0 h-[60px] w-[60px] rounded-[180%]" ></Image>
@@ -33,9 +32,7 @@ return(
                                             <ThumbsUp size={'1.2em'} className="hover:cursor-pointer"></ThumbsUp>
                                                 20
                                    </div>
-                                   <button onClick={()=>{setrespone(prev=>!prev)}} className="font-semibold hover:cursor-pointer hover:underline">
-                                     respone
-                                   </button>
+                              
                          </div>
 
                     </div>
@@ -43,14 +40,9 @@ return(
           
                  
             </div>
-{      respone &&      <div className="mt-[7px] w-[75%] sm:w-[60%] self-center flex flex-col gap-[5px]">
-               <Textarea className=" bg-white" placeholder="Type your comment here">
-                           
-               </Textarea>
-               <Button className=" w-[20%] sm:w-[12%] bg-main text-white text-[3.5em] self-center font-bold hover:bg-gray-500 hover:cursor-pointer"> ADD </Button>                 
-            </div>} 
+
              
-          <SubComment date="4/1/2025" content="sadsadsadsadsadsadasda" username="ahmed" image="https://cdn.pixabay.com/photo/2025/10/09/14/14/muztagh-9883659_1280.jpg"></SubComment>
+
           
         </div>
 
