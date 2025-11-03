@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { SlidersHorizontal } from 'lucide-react';
 import { useState } from "react";
 
-export  function Filter(){
+export const Filter:React.FC<{type:string}>=(props)=>{
 const [clicked,setclicked]=useState<boolean>(false)
 function handleclick(){
 setclicked(prev=>!prev)
@@ -22,6 +22,10 @@ return(
                    <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold ">Oldest</button>
                    <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold"> Most liked </button>
                    <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold"> Most viewed </button>
+                   { props.type==='reviews' &&<>                   
+                   <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold"> Most Rated </button>
+                                      
+                   </>}
                    
           </div>}
  </div>

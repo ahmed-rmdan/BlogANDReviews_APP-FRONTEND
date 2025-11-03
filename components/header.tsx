@@ -84,9 +84,9 @@ return(
                        FineTech
                 
               </Link>
-              <div className="flex flex-row relative items-center justify-center  w-[30%] gap-[20%]">
+              <div className="flex flex-row relative items-center justify-center rounded-2xl w-[30%] gap-[13%]">
                {  sign&&  <div  onMouseLeave={()=>{setsign(prev=>false)}}  onMouseEnter={()=>{setsign(prev=>true)}} className=" absolute w-[300px] xl:w-[370px] h-[350px] 
-                     right-[70px]  xl:right-[150px]  2xl:right-[250px] top-[30px] bg-[#e5e7eb]">
+                     right-[70px]  xl:right-[150px]  2xl:right-[220px] top-[30px] rounded-2xl bg-[#e5e7eb]">
                            <CardLogin></CardLogin>
                    </div>}
                  <Link href={'/login'} onMouseEnter={()=>{

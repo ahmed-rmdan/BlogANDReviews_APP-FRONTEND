@@ -14,10 +14,10 @@ import { Label } from "@/components/ui/label"
 
 export function CardLogin() {
   return (
-    <Card className="w-full max-w-sm text-main">
+    <Card className="w-full max-w-sm rounded-2xl">
       <CardHeader>
         <CardTitle className=" text-[5.5em]  sm:text-[4em] ">Login to your account</CardTitle>
-        <CardDescription className="text-main">
+        <CardDescription >
           Enter your email below to login to your account
         </CardDescription>
         <CardAction>
@@ -41,7 +41,7 @@ export function CardLogin() {
                 <Label htmlFor="password">Password</Label>
                 <a
                   href="#"
-                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                  className="ml-auto text-main inline-block text-sm underline-offset-4 hover:underline"
                 >
                   Forgot your password?
                 </a>
