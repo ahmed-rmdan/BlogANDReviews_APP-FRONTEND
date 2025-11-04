@@ -12,6 +12,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
+import Link from "next/link"
+
 export function CardLogin() {
   return (
     <Card className="w-full max-w-sm rounded-2xl">
@@ -21,7 +23,7 @@ export function CardLogin() {
           Enter your email below to login to your account
         </CardDescription>
         <CardAction>
-          <Button variant="link" className="text-main">Sign Up</Button>
+          <Link  href={'/signup'} className="text-main text-[3.5em] font-semibold hover:underline ">Sign Up</Link>
         </CardAction>
       </CardHeader>
       <CardContent>
