@@ -23,18 +23,18 @@ export function CardLogin() {
           Enter your email below to login to your account
         </CardDescription>
         <CardAction>
-          <Link  href={'/signup'} className="text-main text-[3.5em] font-semibold hover:underline ">Sign Up</Link>
+          <Link  href={'/signup'} className=" text-main text-[6em]  sm:text-[4em] font-semibold hover:underline ">Sign Up</Link>
         </CardAction>
       </CardHeader>
       <CardContent>
         <form>
           <div className="flex flex-col gap-6">
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">UserName</Label>
               <Input
                 id="email"
-                type="email"
-                placeholder="m@example.com"
+                type="text"
+                placeholder=""
                 required
               />
             </div>
@@ -42,7 +42,7 @@ export function CardLogin() {
               <div className="flex items-center">
                 <Label htmlFor="password">Password</Label>
                 <a
-                  href="#"
+                  href="/repass"
                   className="ml-auto text-main inline-block text-sm underline-offset-4 hover:underline"
                 >
                   Forgot your password?

@@ -8,6 +8,10 @@ import { useState,useEffect } from "react";
 import {motion} from 'framer-motion'
 import { AnimatePresence } from "framer-motion";
 import { Searchinput } from "./global/search";
+import { UserRoundPen } from 'lucide-react';
+import { Bookmark } from 'lucide-react';
+import { ThumbsUp } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 
 
 import { Button } from "@/components/ui/button"
@@ -21,14 +25,19 @@ import { Star } from 'lucide-react';
 import { Sun } from 'lucide-react';
 import { Moon } from 'lucide-react';
 import { User } from 'lucide-react';
+import Image from "next/image";
+import { Profile } from "./user/profile";
 
+import { useRouter } from "next/navigation";
 
 export function Header(){
-    
+    const router=useRouter()
 const [width,setwidth]=useState<number>(0)
 const [menu,setmenu]=useState<boolean>(false)
 const [search,setsearch]=useState<boolean>(false)
 const [sign,setsign]=useState<boolean>(false)
+const [profile,setprofile]=useState<boolean>(false)
+
 
 useEffect(()=>{
 setwidth(window.screen.width)
@@ -85,15 +94,27 @@ return(
                 
               </Link>
               <div className="flex flex-row relative items-center justify-center rounded-2xl w-[30%] gap-[13%]">
-               {  sign&&  <div  onMouseLeave={()=>{setsign(prev=>false)}}  onMouseEnter={()=>{setsign(prev=>true)}} className=" absolute w-[300px] xl:w-[370px] h-[350px] 
+               {/* {  sign&&  <div  onMouseLeave={()=>{setsign(prev=>false)}}  onMouseEnter={()=>{setsign(prev=>true)}} className=" absolute w-[300px] xl:w-[370px] h-[350px] 
                      right-[70px]  xl:right-[150px]  2xl:right-[220px] top-[30px] rounded-2xl bg-[#e5e7eb]">
                            <CardLogin></CardLogin>
-                   </div>}
-                 <Link href={'/login'} onMouseEnter={()=>{
+                   </div>} */}
+                 {/* <Link href={'/login'} onMouseEnter={()=>{
                   setsign(prev=>true)
                  }} className=" sm:text-[3em] lg:text-[3em] xl:text-[4.5em] self-center font-semibold hover:underline hover:cursor-pointer">
                  LogIn/SignUp
+                   </Link> */}
+
+
+                 <Link href={'/user/profile'} onMouseEnter={()=>{
+                  setprofile(prev=>true)
+                 }} className="relative w-[45px] rounded-[180%] h-[45px] ">
+                             <Image src={'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'} fill alt="profilepic" className="absolute
+                              w-full top-0 h-full rounded-[180%] "></Image>
                    </Link>
+               {  profile&&  <div  onMouseLeave={()=>{setprofile(prev=>false)}}  onMouseEnter={()=>{setsign(prev=>true)}} className=" absolute w-[300px] xl:w-[370px] 
+                     right-[70px]  xl:right-[130px]  2xl:right-[220px] top-[45px] rounded-2xl bg-[#e5e7eb]">
+                          <Profile></Profile>
+                   </div>}                       
                 
                    {/* <User size={'8em'}></User> */}
                    <Search onClick={handlesearch} className=" hover:cursor-pointer" size={'7.5em'}></Search>
@@ -103,12 +124,12 @@ return(
                    
                     
               </div>
-      {     search &&  <div className=" absolute flex flex-row top-[80px] lg:top-[100px] items-center justify-center sm:right-[70px] right-[150px] 2xl:right-[250px]
+      {    search &&  <div className=" absolute flex flex-row top-[80px] lg:top-[100px] items-center justify-center sm:right-[70px] right-[150px] 2xl:right-[250px]
        gap-[10px] bg-[#e5e7eb]  w-[350px] h-[50px]">
                          <Input type="text" className=" border-[#cb1b16] text-[4em] w-[67%] border-2 text-[#cb1b16] bg-white "  />
                           <Button type="submit" variant="outline" className=" bg-[#cb1b16] hover:bg-[#cb1b16] text-[3em]  w-[25%]
                            hover:cursor-pointer hover:text-white " >
-                                 <Search className="w-[25%]  " ></Search> Search
+                                 <Search className="w-[25%] " ></Search> Search
                             </Button>
                 </div>}
                                    
@@ -122,18 +143,16 @@ else {
              <div className="flex flex-row w-[100%] text-[1em] justify-between items-center gap-[10%]">
                   <AlignJustify color="white" className="min-w-[10%]" onClick={handleclick}></AlignJustify>
              
-                      <div className="flex w-[90%] gap-[10%] flex-row items-center justify-center  ">
+                      <div className="flex w-[75%] gap-[10%] flex-row items-center justify-center  ">
                           <Link href={'/'}  className=" text-center  font-extrabold w-[50%] 
                                 text-[7em]  
-                                hover:cursor-pointer   ">
+                                hover:cursor-pointer ">
                                  FineTech
                 
                           </Link>
-                              <div className="flex flex-row w-[30%] gap-[13%] ">
-                                 <Link  href={'/login'} className="text-[3em] self-center  font-semibold hover:underline hover:cursor-pointer">
-                                 LogIn/SignUp
-                                  </Link>
-                                <Search className=" hover:cursor-pointer" size={'7.5em'} onClick={handlesearch}></Search>
+                              <div className="flex flex-row w-[30%] justify-center gap-[13%] ">
+
+                                <Search className=" hover:cursor-pointer" size={'9em'} onClick={handlesearch}></Search>
                  
                               </div>
                                   {     search &&  <div className=" absolute flex flex-row top-[50px]  items-center justify-center right-[17px] 
@@ -153,31 +172,65 @@ else {
               items-center justify-start bg-[#cb1b16]  ">
 
                 
-                 <div className="flex flex-col w-full mt-[40px] min-h-[100%] items-center justify-start gap-[5%] text-[13px] 
+                 <div className="flex flex-col w-full mt-[30px] min-h-[100%] items-center justify-start gap-[5%] text-[13px] 
               text-white font-semibold  ">
-                          <div className="flex flex-row justify-start h-[10%] w-[70%] items-center">
+                          <div className="flex flex-row justify-start h-[5%] w-[70%] items-center">
                                 <Moon size={'2em'}></Moon>
                                
                            </div>
-                      <div className="flex flex-col w-full     min-h-full items-center gap-[10%]">
+                      <div className="flex flex-col w-full      items-center gap-[55px]">
 
                           <div className="flex flex-row gap-[5px] items-center">
                                 <House size={'1.4em'}></House>
-                               <button onClick={()=>{handlenavigate('2')}}  className="hover:underline hover:cursor-pointer" > HOME</button>
+                               <Link href={'/'} className="hover:underline hover:cursor-pointer" > HOME</Link>
                            </div>
                               <div className="flex flex-row gap-[5px] items-center">
                                 <Newspaper size={'1.4em'}></Newspaper>
-                               <button  onClick={()=>{handlenavigate('3')}} className="hover:underline hover:cursor-pointer text-[1.1em]" > Blog</button>
+                               <Link href={'/blog'}  onClick={()=>{handlenavigate('3')}} className="hover:underline hover:cursor-pointer text-[1.1em]" > Blog</Link>
                            </div>
                            
                               <div className="flex flex-row gap-[5px] items-center">
                                 <Star size={'1.4em'}></Star>
-                               <button  onClick={()=>{handlenavigate('4')}}  className="hover:underline hover:cursor-pointer text-[1.05em]"> Reviews</button>
-                           </div>
-                          
-                           
-          
-                      </div>     
+                               <Link  href={'/reviews'}  className="hover:underline hover:cursor-pointer text-[1.05em]"> Reviews</Link>
+                           </div>                                    
+                      </div>
+                      {/* <div className="flex flex-col w-full border-t-2 p-7   text-[1.1em]  items-center gap-[50px]">
+                                  
+                                  <Link href={'/login'}  >Login</Link>
+                                   <Link href={'/signup'}  >Signup</Link>
+                                                               
+                      </div> */}
+                     <div className=" flex flex-col items-center gap-[30px] border-t-2 text-[1em] p-7 ">
+                            <div className=" relative w-[50px] h-[50px] rounded-[180%]">
+                                <Image onClick={()=>router.push('/user/profile')}   src={'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'} 
+                                      alt="profilepic" fill className="rounded-[180%]" ></Image>
+                                                              
+                            </div>
+                            <div className="flex flex-row gap-[7px] text-white">
+                                 <UserRoundPen color="white"></UserRoundPen>
+                                <Link href={'/user/edit'} className=" font-bold hover:underline"> Edit</Link>
+           
+                         </div>
+                         <div className="flex flex-row gap-[7px] items-center">
+                                <Bookmark ></Bookmark>
+                               <Link href={'/user/saved'} className="  font-bold hover:underline"> Saved</Link>
+            
+                        </div>
+                        <div className="flex flex-row text-center gap-[7px]">
+                               <ThumbsUp ></ThumbsUp>
+                             <Link href={'/user/liked'} className="  font-bold hover:underline"> Liked</Link>
+              
+                       </div>       
+                       <div className="flex flex-row items-center gap-[7px]">
+                            <LogOut ></LogOut>
+                           <p   className=" font-bold hover:underline hover:cursor-pointer "> LogOut</p>
+            
+                      </div>            
+                
+                    </div>                      
+                                               
+                         
+                            
                 </div> 
                                     
              </motion.div>: ''}
