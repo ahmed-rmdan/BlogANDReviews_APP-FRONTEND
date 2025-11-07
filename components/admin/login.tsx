@@ -14,16 +14,16 @@ import { Label } from "@/components/ui/label"
 
 import Link from "next/link"
 
-export function CardLogin() {
+export function LoginAdmin() {
   return (
     <Card className="w-full max-w-sm rounded-2xl">
       <CardHeader>
-        <CardTitle className=" text-[5.5em]  sm:text-[4em] ">Login to your account</CardTitle>
+        <CardTitle className=" text-[7em] font-bold text-main  text-center  sm:text-[5em] ">Admin login</CardTitle>
         <CardDescription >
           Enter your userName and password below to login to your Admin Dashboard
         </CardDescription>
         <CardAction>
-          <Link  href={'/signup'} className=" text-main text-[6em]  sm:text-[4em] font-semibold hover:underline ">Sign Up</Link>
+      
         </CardAction>
       </CardHeader>
       <CardContent>
@@ -54,12 +54,10 @@ export function CardLogin() {
         </form>
       </CardContent>
       <CardFooter className="flex-col gap-2">
-        <Button type="submit" className="w-full bg-main text-white hover:bg-gray-500 ">
+        <Button type="submit" className="w-full bg-main text-white hover:bg-gray-500 hover:cursor-pointer ">
           Login
         </Button>
-        <Button variant="outline" className="w-full">
-          Login with Google
-        </Button>
+   
       </CardFooter>
     </Card>
   )

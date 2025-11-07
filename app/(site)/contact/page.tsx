@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 export default function Contact(){
     return(
-     <div className="container flex flex-col w-full mx-auto gap-[10px] text-[5.5px] p-6 md:text-[8px] xl:text-[10px] md:gap-[90px]">
+     <div className="container flex flex-col w-full mx-auto gap-[10px] text-[5.5px] p-6 md:text-[8px] xl:text-[10px] md:gap-[40px]">
       <motion.h1 initial={{x:-250,opacity:0}} transition={{duration:1}} animate={{x:0,opacity:100}}  className="w-full font-bold text-main
       underline text-[5em] text-center   "> Contact Us</motion.h1>
       <motion.div initial={{x:-500,opacity:0}} transition={{duration:1.2}} animate={{x:0,opacity:100}} className="flex flex-col 
