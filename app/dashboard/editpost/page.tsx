@@ -5,11 +5,11 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
-export default function Addpost(){
+export default function Eddpost(){
   return(
     <div className=" min-w-[75%]   flex items-center justify-center p-5 " >
          <div className="bg-white flex flex-col w-[98%] sm:w-[80%] items-center gap-[15px] p-5 rounded-2xl">
-               <h1 className="text-main text-[9em] underline font-bold ">Add Post</h1>
+               <h1 className="text-main text-[9em] underline font-bold ">Edit Post</h1>
                 <form className="flex flex-col w-[85%] sm:w-[70%] xl:w-[50%]  gap-[15px] ">
                            <div className="grid gap-2 text-[2em]">
                                <Label className="text-[2.5em]" htmlFor="Main Title">Main Title</Label>
