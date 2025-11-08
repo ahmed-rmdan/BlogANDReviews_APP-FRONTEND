@@ -6,7 +6,7 @@ import { Trash } from 'lucide-react';
 export  function PostItemAdmin() {
 
   return (
-       <div className="flex flex-row items-center   p-6 justify-between  w-full bg-white h-[80px]   ">
+       <div className="flex flex-row items-center  p-2 sm:p-6 justify-between  w-full bg-white h-[80px]   ">
             <div className="flex flex-row items-center gap-[10px] ">
                 <div className="relative w-[60px] sm:w-[75px] h-[65px]">
                     <Image alt="postitemAdmin" fill src="https://cdn.pixabay.com/photo/2025/10/09/14/14/muztagh-9883659_1280.jpg"></Image>
