@@ -27,7 +27,7 @@ export function AccordionDemo() {
           <Link className="hover:underline" href={'/dashboard/addpost'}>
              Add Post
           </Link>
-            <Link className="hover:underline" href={'/dashboard/posts'}>
+            <Link className="hover:underline" href={'/dashboard/posts?activepage=1&sort=all'}>
                Posts Control
           </Link>
         </AccordionContent>

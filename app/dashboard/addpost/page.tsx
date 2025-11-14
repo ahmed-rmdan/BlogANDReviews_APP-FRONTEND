@@ -87,7 +87,7 @@ throw Error(postdata2.message as string)
  }
  
 
- router.push('/dashboard/posts')
+ router.push('/dashboard/posts?activepage=1&sort=all')
 toast.success('POST has been Created successfully')
 
   }

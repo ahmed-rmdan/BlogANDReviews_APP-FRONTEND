@@ -7,31 +7,64 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
-export function Pages() {
-  return (
+import { FC } from "react"
+
+
+export const Pages:FC<{activepage:number,noposts:number,types:string,sort:string,search?:string}>=(props)=>{
+
+
+
+ const nopages=Math.ceil(props.noposts/6) 
+ 
+ const nogrouppages=Math.ceil(nopages/6)
+  const curgrouppages=(Math.ceil(props.activepage/6))
+ 
+  const end=(curgrouppages<nogrouppages)?6:nopages%6
+  let arr:number[]=[]
+  
+    for(let i=(curgrouppages-1)*6+1;i<=end;i++){
+      arr.push(i)
+    }
+
+  if(props.types==='postsadmin'){
+       return (
     <Pagination>
       <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">1</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#" isActive>
-            2
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">3</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationEllipsis />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationNext href="#" />
-        </PaginationItem>
+ {  props.activepage !==1 && <PaginationItem>
+          <PaginationPrevious href={`/dashboard/posts?activepage=${props.activepage-1}&sort=${props.sort}`} />
+         </PaginationItem>}
+       { arr.map(elm=>{
+        return <PaginationItem key={elm}>
+             <PaginationLink href={`/dashboard/posts?activepage=${elm}&sort=${props.sort}`} isActive={props.activepage===elm}>{elm}</PaginationLink>
+             </PaginationItem>
+                   }) 
+                       }
+  {  props.activepage<nopages&& <PaginationItem>
+          <PaginationNext href={`/dashboard/posts?activepage=${props.activepage+1}&sort=${props.sort}`} />
+        </PaginationItem>}
       </PaginationContent>
     </Pagination>
   )
+ }
+   if(props.types==='searchpostsadmin'){
+       return (
+    <Pagination>
+      <PaginationContent>
+ {  props.activepage !==1 && <PaginationItem>
+          <PaginationPrevious href={`/dashboard/posts/search?search=${props.search}&activepage=${props.activepage-1}&sort=${props.sort}`} />
+         </PaginationItem>}
+       { arr.map(elm=>{
+        return <PaginationItem key={elm}>
+             <PaginationLink href={`/dashboard/posts/search?search=${props.search}&activepage=${elm}&sort=${props.sort}`} isActive={props.activepage===elm}>{elm}</PaginationLink>
+             </PaginationItem>
+                   }) 
+                       }
+  {  props.activepage<nopages&& <PaginationItem>
+          <PaginationNext href={`/dashboard/posts/search?search=${props.search}&activepage=${props.activepage+1}&sort=${props.sort}`} />
+        </PaginationItem>}
+      </PaginationContent>
+    </Pagination>
+  )
+ }     
+  
 }

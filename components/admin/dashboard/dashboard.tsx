@@ -6,7 +6,7 @@ import { useEffect,useState } from "react"
 
 
 export function Dashboard() {
-const [width,setwidth]=useState(0)
+const [width,setwidth]=useState(window.innerWidth)
   useEffect(()=>{
   setwidth(window.screen.width)
     window.addEventListener('resize',()=>{

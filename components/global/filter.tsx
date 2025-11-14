@@ -2,11 +2,20 @@
 import { Button } from "@/components/ui/button"
 import { SlidersHorizontal } from 'lucide-react';
 import { useState } from "react";
-
-export const Filter:React.FC<{type:string}>=(props)=>{
+import { useRouter } from "next/navigation";
+export const Filter:React.FC<{type:string,filter:string,search?:string}>=(props)=>{
+      const router=useRouter()
 const [clicked,setclicked]=useState<boolean>(false)
 function handleclick(){
 setclicked(prev=>!prev)
+}
+function onselect(elm:string){
+  if(props.filter==='postsadmin'){
+      router.push(`/dashboard/posts?activepage=1&sort=${elm}`)
+  }
+    if(props.filter==='searchpostsadmin'){
+      router.push(`/dashboard/posts/search?search=${props.search}&activepage=1&sort=${elm}`)
+  }
 }
 return(
  
@@ -16,14 +25,12 @@ return(
    {  clicked &&     <div className="absolute flex flex-col items-center justify-center top-[30px] sm:top-[40px] gap-[5px] w-[95px] sm:w-[140px]
      text-[#cb1b16] text-[6em] sm:text-[5em] rounded-[4px] 
            border-1 z-50 bg-white border-[#cb1b16] hover:cursor-auto ">
-                   <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold " onClick={()=>{
-                    console.log('a')
-                   }}>Newest</button>
-                   <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold ">Oldest</button>
-                   <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold"> Most liked </button>
-                   <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold"> Most viewed </button>
+                   <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold " onClick={()=>onselect('Newest')}>Newest</button>
+                   <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold  " onClick={()=>onselect('Oldest')}  >Oldest</button>
+                   <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold" onClick={()=>onselect('Most liked')}> Most liked </button>
+                   <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold" onClick={()=>onselect('Most viewed')}> Most viewed </button>
                    { props.type==='reviews' &&<>                   
-                   <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold"> Most Rated </button>
+                   <button className="w-full hover:bg-[#cb1b16] hover:text-white hover:cursor-pointer font-semibold" onClick={()=>onselect('Most Rated')}> Most Rated </button>
                                       
                    </>}
                    
