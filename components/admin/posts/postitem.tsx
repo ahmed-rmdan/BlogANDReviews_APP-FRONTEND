@@ -1,23 +1,57 @@
-
+'use client'
 import Image from "next/image"
 
 import { Pencil } from 'lucide-react';
 import { Trash } from 'lucide-react';
+import { Eye } from 'lucide-react';
 
-export  function PostItemAdmin({title,mainimage,date,id}
-  :{title:string,mainimage:string,date:Date,id:string}) {
+import { toast } from "sonner"
+import { useRouter } from "next/navigation";
+
+export   function PostItemAdmin({title,mainimage,date,id,views}
+  :{title:string,mainimage:string,date:Date,id:string,views:number}) {
+const router= useRouter()
+ 
+  async function handledelete(){{
+    const confirm=window.confirm( `You are deleting post:${title} parmently from the database are you sure ?`)
+    
+    if(!confirm){
+         return
+    }
+       const res=await fetch('http://localhost:5000/posts/deletepost',{
+        method:'DELETE',
+        headers:{    'Content-Type': 'application/json'},
+        body:JSON.stringify({id})
+       })  
+       
+       if(!res.ok){
+        console.log(id)
+       }
+
+        router.push(`/dashboard/posts?activepage=1&sort=Newest`)   
+       toast.success('post has been deleted ')
+
+
+
+
+  }}
 
   return (
        <div className="flex flex-row items-center  p-2 sm:p-6 justify-between  w-full bg-white h-[80px]   ">
             <div className="flex flex-row items-center gap-[10px] ">
-                <div className="relative w-[60px] sm:w-[110px] xl:w-[140px] h-[65px]">
+                <div className="relative w-[60px] sm:w-[90px] xl:w-[140px] h-[65px]">
                     <Image alt="postitemAdmin" fill src={mainimage}></Image>
                  </div>
-                 <p className="font-bold text-[4em] sm:text-[3.5em] md:text-[4em]  lg:text-[5.5em] "> {title}</p>
+                 <p className="font-bold text-[4em] sm:text-[3em]   lg:text-[5.5em] "> {title}</p>
             </div>
-            <div className="flex flex-row items-center gap-[10px]  sm:gap-[30px] ">
+            <div className="flex flex-row items-center gap-[10px]  sm:gap-[15px] xl:gap-[30px] ">
                      <Pencil  size={'6em'} color="#cb1b16" className="hover:cursor-pointer" ></Pencil>
-                     <Trash size={'6em'} color="#cb1b16" className="hover:cursor-pointer"></Trash>
+                     <Trash size={'6em'} color="#cb1b16" className="hover:cursor-pointer" onClick={handledelete}></Trash>
+                     <div className="flex flex-row gap-[8px]">
+                      <Eye size={'6em'} color="#cb1b16" className="hover:cursor-pointer "></Eye>
+                        <p className="text-[4em] text-main"> {views}</p>
+                     </div>
+                     
                      <p className="text-[3em] text-main">{ date.toLocaleDateString('en-US')}</p>
             </div>
                      

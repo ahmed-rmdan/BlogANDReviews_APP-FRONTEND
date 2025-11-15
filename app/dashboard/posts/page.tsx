@@ -11,9 +11,10 @@ import { useAppDispatch,useAppSelector } from "@/state/hook"
 
 
 export default  async function  PostControl({searchParams }:{searchParams:{activepage:string,sort:string}}){
-
-    
-  const res=await fetch(`http://localhost:5000/posts/getposts?page=${ searchParams.activepage}&sort=${searchParams.sort}`,{      
+   
+  const params=await searchParams
+     
+  const res=await fetch(`http://localhost:5000/posts/getposts?page=${ params.activepage}&sort=${params.sort}`,{      
       cache:'no-store'        
                      })
                      if(!res.ok){
@@ -31,10 +32,10 @@ export default  async function  PostControl({searchParams }:{searchParams:{activ
                    </div>         
                       <div className="flex flex-col w-[99%] sm:w-[90%] xl:w-[75%] gap-[20px] items-center justify-around   ">
                          { data.posts.map((elm,i)=>{
-                           return  <PostItemAdmin id={elm._id} key={i} title={elm.title} mainimage={elm.mainimage} date={new Date(elm.createdAt) }></PostItemAdmin>
+                           return  <PostItemAdmin id={elm._id} key={i} title={elm.title} mainimage={elm.mainimage} date={new Date(elm.createdAt) } views={elm.views}></PostItemAdmin>
                          }) }
                         </div>         
-              <Pages activepage={Number(searchParams.activepage)} noposts={data.noposts} types="postsadmin"  sort={searchParams.sort}></Pages>
+              <Pages activepage={Number(params.activepage)} noposts={data.noposts} types="postsadmin"  sort={params.sort}></Pages>
         
     </div>
   )

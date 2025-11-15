@@ -5,6 +5,7 @@ export type post={
     content:string,
     likes:string[],
     comments:string[],
+    views:number,
     mainslider:boolean,
     createdAt:string,
     _id:string

@@ -31,7 +31,7 @@ export default  async function  PostControl({searchParams }:{searchParams:{activ
                    </div>         
                       <div className="flex flex-col w-[99%] sm:w-[90%] xl:w-[75%] gap-[20px] items-center justify-around   ">
                          { data.posts.map((elm,i)=>{
-                           return  <PostItemAdmin id={elm._id} key={i} title={elm.title} mainimage={elm.mainimage} date={new Date(elm.createdAt) }></PostItemAdmin>
+                           return  <PostItemAdmin id={elm._id} key={i} title={elm.title} mainimage={elm.mainimage} date={new Date(elm.createdAt) } views={elm.views}></PostItemAdmin>
                          }) }
                         </div>         
               <Pages activepage={Number(searchParams.activepage)} noposts={data.noposts} types="searchpostsadmin" search={searchParams.search}  sort={searchParams.sort}></Pages>
