@@ -30,8 +30,8 @@ export const Pages:FC<{activepage:number,noposts:number,types:string,sort:string
        return (
     <Pagination>
       <PaginationContent>
- {  props.activepage !==1 && <PaginationItem>
-          <PaginationPrevious href={`/dashboard/posts?activepage=${props.activepage-1}&sort=${props.sort}`} />
+ {   curgrouppages !==1 && <PaginationItem>
+          <PaginationPrevious href={`/dashboard/posts?activepage=${(curgrouppages-1)*6}&sort=${props.sort}`} />
          </PaginationItem>}
        { arr.map(elm=>{
         return <PaginationItem key={elm}>
@@ -39,8 +39,8 @@ export const Pages:FC<{activepage:number,noposts:number,types:string,sort:string
              </PaginationItem>
                    }) 
                        }
-  {  props.activepage<nopages&& <PaginationItem>
-          <PaginationNext href={`/dashboard/posts?activepage=${props.activepage+1}&sort=${props.sort}`} />
+  {  curgrouppages<nogrouppages&& <PaginationItem>
+          <PaginationNext href={`/dashboard/posts?activepage=${(curgrouppages*6)+1}&sort=${props.sort}`} />
         </PaginationItem>}
       </PaginationContent>
     </Pagination>
@@ -50,8 +50,8 @@ export const Pages:FC<{activepage:number,noposts:number,types:string,sort:string
        return (
     <Pagination>
       <PaginationContent>
- {  props.activepage !==1 && <PaginationItem>
-          <PaginationPrevious href={`/dashboard/posts/search?search=${props.search}&activepage=${props.activepage-1}&sort=${props.sort}`} />
+ {  curgrouppages !==1 && <PaginationItem>
+          <PaginationPrevious href={`/dashboard/posts/search?search=${props.search}&activepage=${(curgrouppages-1)*6}&sort=${props.sort}`} />
          </PaginationItem>}
        { arr.map(elm=>{
         return <PaginationItem key={elm}>
@@ -59,8 +59,8 @@ export const Pages:FC<{activepage:number,noposts:number,types:string,sort:string
              </PaginationItem>
                    }) 
                        }
-  {  props.activepage<nopages&& <PaginationItem>
-          <PaginationNext href={`/dashboard/posts/search?search=${props.search}&activepage=${props.activepage+1}&sort=${props.sort}`} />
+  {  curgrouppages<nogrouppages&& <PaginationItem>
+          <PaginationNext href={`/dashboard/posts/search?search=${props.search}&activepage=${(curgrouppages*6)+1}&sort=${props.sort}`} />
         </PaginationItem>}
       </PaginationContent>
     </Pagination>

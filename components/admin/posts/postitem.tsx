@@ -45,7 +45,7 @@ const router= useRouter()
                  <p className="font-bold text-[4em] sm:text-[3em]   lg:text-[5.5em] "> {title}</p>
             </div>
             <div className="flex flex-row items-center gap-[10px]  sm:gap-[15px] xl:gap-[30px] ">
-                     <Pencil  size={'6em'} color="#cb1b16" className="hover:cursor-pointer" ></Pencil>
+                     <Pencil  size={'6em'} color="#cb1b16" className="hover:cursor-pointer" onClick={()=>{router.push(`/dashboard/postedit?id=${id}`)}} ></Pencil>
                      <Trash size={'6em'} color="#cb1b16" className="hover:cursor-pointer" onClick={handledelete}></Trash>
                      <div className="flex flex-row gap-[8px]">
                       <Eye size={'6em'} color="#cb1b16" className="hover:cursor-pointer "></Eye>
